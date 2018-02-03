@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Lojas Razor</title>
+	<link rel="stylesheet" href="~/Content/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" href="~/Content/Style.css">
+</head>
+<body>
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				@Html.Partial("_Menu")
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span3">
+				@Html.Action("Index", "Menu");
+			</div>
+			<div class="span9">
+				@RenderBody()
+			</div>
+		</div>
+   </div>
+   @RenderSection("Scripts",false)
+</body>
+</html>

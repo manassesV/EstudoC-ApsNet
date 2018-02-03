@@ -1,0 +1,34 @@
+﻿@model LojaRazor.Models.Usuario
+
+<div class="hero-unit span6">
+
+	<h2>Login</h2>
+
+	<p>Já Possui Cadastro? Então faça seu login</p>
+
+	@using (Html.BeginForm("Autentica", "Autenticacao", FormMethod.Post))
+	{
+		@Html.LabelFor(u => u.Email)
+		@Html.TextBoxFor(u => u.Email, new { @type = "email" })
+		@Html.ValidationMessageFor(u => u.Email)
+
+		@Html.LabelFor(u => u.Senha)
+		@Html.PasswordFor(u => u.Senha)
+		@Html.ValidationMessageFor(u => u.Senha)
+
+		@Html.ActionLink("Save", "Logar", null, new { @class = "btn btn-success", @type = "submit" })
+
+	}
+</div>
+
+<div class="hero-unit span6">
+    <h2>Novo Usuário?</h2>
+
+    <p>Se você ainda não tem um cadastro, informe qual é o e-mail que você deseja associar com sua conta</p>
+
+    <form action="@Url.Action("Form", "Usuarios")">
+        <input type="text" class="input-block-level" placeholder="E-mail" name="Email"/>
+
+        <input type="submit" class="btn btn-large btn-primary" value="Criar Conta" />
+    </form>
+</div>
